@@ -3,7 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const io = require("socket.io");
 const path = require("path");
-const port = 3000;
+const config = require("./config");
 
 // setup server
 const app = express();
@@ -20,8 +20,8 @@ app.get("/", (req, res) => {
 });
 
 // Start listening
-server.listen(port);
-console.log(`Started on port ${port}`);
+server.listen(config.port);
+console.log(`Started on port ${config.port}`);
 
 // Setup socket.io
 socketIo.on("connection", socket => {
