@@ -25,8 +25,8 @@ console.log(`Started on port ${config.port}`);
 
 // Setup socket.io
 socketIo.on("connection", socket => {
-  const username = socket.handshake.query.username;
-  console.log(`${username} connected`);
+  const userName = socket.handshake.query.username;
+  console.log(`${userName} connected`);
 
   socket.on("client:message", data => {
     console.log("client:message", data);
@@ -35,6 +35,6 @@ socketIo.on("connection", socket => {
   });
 
   socket.on("disconnect", () => {
-    console.log(`${username} disconnected`);
+    console.log(`${userName} disconnected`);
   });
 });
